@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, Dimensions } from 'react-native';
 import watering from '../assets/watering.png';
 import { Button } from '../components/Button';
 import colors from '../styles/colors';
@@ -12,7 +12,7 @@ export function Welcome() {
                 suas plantas {'\n'}
                 de forma fácil
             </Text>
-            <Image source={watering} style={styles.image} />
+            <Image source={watering} style={styles.image} resizeMode='contain' />
             <Text style={styles.subtitle}>
                 Não esqueça mais de regar suas plantas.
                 Nós cuidamos de lembrar você sempre que precisar.
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         fontSize: 24
     },
     image: {
-        width: 292,
-        height: 284
+        // Set the height accordingly to the window width
+        height: Dimensions.get('window').width * 0.7
     }
 });
